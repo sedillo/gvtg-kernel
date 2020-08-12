@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  kernelbuild:
+    user: "1000:1000"
+    image: kernelbuild
+    build:
+      dockerfile: Dockerfile.kernelbuild
+      context: . 
+    volumes:
+      - ${PWD}:/mount
+
