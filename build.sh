@@ -14,6 +14,7 @@ fi
 
 # Run kernel package building using Ubuntu kernel packaging convention, \
 # this will take a long time
+cp config-5.4.0-42-generic $WDIR/.config
 ( cd $WDIR && yes '' | make oldconfig )
 ( cd $WDIR && CONCURRENCY_LEVEL=`nproc` fakeroot make-kpkg --initrd --append-to-version=-custom \
 	--revision 2.1.0 --overlay-dir=/usr/share/kernel-package kernel_image kernel_headers )
